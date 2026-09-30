@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#060607" />
+    <meta name="description" content="FlowMoney dashboard keuangan pribadi." />
+    <title>FlowMoney Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/dashboard/dashboard.css" />
+    <script src="../runtime-config.js"></script>
+    <script src="../firebase-config.js"></script>
+    <script type="module" src="/dashboard/app.js"></script>
+  </head>
+  <body>
+    <div class="stage">
+      <section class="win" aria-label="FlowMoney Dashboard">
+        <div class="glow" aria-hidden="true"></div>
+        <header class="tb">
+          <span class="traffic-light red" aria-hidden="true"></span>
+          <span class="traffic-light yellow" aria-hidden="true"></span>
+          <span class="traffic-light green" aria-hidden="true"></span>
+          <strong>FlowMoney Dashboard</strong>
+        </header>
+        <div class="body">
+          <nav id="nav" aria-label="Menu utama"></nav>
+          <section class="workspace">
+            <header class="workspace-toolbar">
+              <span class="mobile-brand"><span class="brand-mark" aria-hidden="true">F</span><b>FlowMoney</b></span>
+              <label class="month-picker" for="month-picker">BULAN<input id="month-picker" type="month" /></label>
+            </header>
+            <section id="account-area" hidden aria-live="polite"></section>
+            <p class="storage-warning" id="storage-warning" role="status" hidden></p>
+            <main id="v" tabindex="-1" aria-live="polite"></main>
+            <section class="quick-entry" aria-labelledby="quick-title">
+              <div class="hd"><div><span class="lbl">CATAT CEPAT</span><h2 id="quick-title">Tambah transaksi</h2></div></div>
+              <form id="quick-form" class="row">
+                <label class="visually-hidden" for="quick-input">Deskripsi dan nominal transaksi</label>
+                <input id="quick-input" name="entry" autocomplete="off" placeholder="makan 45rb, gaji 5jt" required />
+                <label class="visually-hidden" for="quick-wallet">Dompet</label>
+                <select id="quick-wallet" name="wallet" aria-label="Pilih dompet"></select>
+                <button class="btn p" type="submit">Catat</button>
+              </form>
+              <p class="lbl">Contoh: kopi 25.000 · beli buku 1,5jt · Enter untuk simpan</p>
+            </section>
+          </section>
+        </div>
+      </section>
+    </div>
+    <input id="imf" type="file" accept="application/json,.json" hidden />
+    <dialog id="dlg" class="dialog" aria-labelledby="dlg-title">
+      <form id="dlg-form" class="dialog-form" novalidate>
+        <div class="dialog-head"><div><span class="lbl" id="dlg-kicker">FLOWMONEY</span><h2 id="dlg-title"></h2></div><button class="dialog-close" type="button" data-dialog-cancel aria-label="Tutup dialog">×</button></div>
+        <p class="dialog-description" id="dlg-description" hidden></p>
+        <div id="dlg-fields" class="dialog-fields"></div>
+        <p class="dialog-error" id="dialog-error" role="alert" hidden></p>
+        <div class="dialog-actions"><button class="btn" type="button" data-dialog-cancel>Batal</button><button class="btn p" id="dlg-confirm" type="submit">Simpan</button></div>
+      </form>
+    </dialog>
+    <div id="t" role="status" aria-live="polite"></div>
+  </body>
+</html>

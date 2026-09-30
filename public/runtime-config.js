@@ -1,0 +1,4 @@
+window.FLOWMONEY_RUNTIME_CONFIG = {
+  USE_API: false,
+  API_BASE_URL: ''
+};

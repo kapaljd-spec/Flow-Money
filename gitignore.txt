@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+firebase-config.js
+node_modules/
+.wrangler/
+dist/
+coverage/
+.cache/
+.npm/
+*.log
+.DS_Store
+Thumbs.db
