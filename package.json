@@ -2,18 +2,20 @@
   "name": "money-flow",
   "version": "1.0.0",
   "description": "FlowMoney is a personal finance application for tracking wallets, transactions, budgets, goals, and spending patterns. The current UI is a vanilla JavaScript static app with local persistence. This repository is being evolved toward one API-first backend shared by web, Telegram Bot, Telegram Mini App, mobile, and future AI tools.",
-  "main": "script.js",
+  "main": "webhook-server.mjs",
   "type": "module",
   "directories": {
     "doc": "docs",
     "test": "tests"
   },
   "dependencies": {
+    "express": "^4.21.1",
     "firebase": "^12.19.0",
     "servor": "^4.0.2"
   },
   "scripts": {
-    "start": "node scripts/serve.mjs",
+    "start": "node webhook-server.mjs",
+    "dev": "node scripts/serve.mjs",
     "build:hosting": "node scripts/prepare-hosting.mjs",
     "test": "node --test tests/*.test.mjs --test-reporter=spec"
   },
@@ -25,10 +27,11 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ryuzu-ctrl/money-flow/issues"
+    "url": "https://github.com/ryuzu-ctrl/money-flow.git"
   },
   "homepage": "https://github.com/ryuzu-ctrl/money-flow#readme",
   "devDependencies": {
     "firebase-tools": "^15.32.0"
   }
 }
+
